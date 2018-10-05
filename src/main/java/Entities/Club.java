@@ -1,11 +1,15 @@
 package Entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.persistence.GenerationType.AUTO;
+
+@NamedQueries({
+				@NamedQuery(name = "Club.addClub", query = "")
+})
 
 @Entity
 public class Club {
@@ -13,10 +17,17 @@ public class Club {
 	private int clubId;
 	@Column(name = "club_name")
 	private String clubName;
+	@OneToMany
+	@JoinColumn(name = "team_id")
+	private List<Team> teams = new ArrayList<Team>();
 
 	public Club(int clubId, String clubName) {
 		this.clubId = clubId;
 		this.clubName = clubName;
+	}
+
+	public Club() {
+		//TODO
 	}
 
 	public int getclubId() {

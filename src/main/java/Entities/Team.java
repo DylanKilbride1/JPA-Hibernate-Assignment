@@ -1,9 +1,8 @@
 package Entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import java.util.List;
 
 import static javax.persistence.GenerationType.AUTO;
 
@@ -13,6 +12,10 @@ public class Team {
 	private int teamId;
 	@Column(name = "team_name")
 	private String teamName;
+	@OneToMany
+	private List<Coach> coaches;
+	@OneToMany
+	private List<Player> players;
 
 	public Team(int teamId, String teamName) {
 		this.teamId = teamId;
