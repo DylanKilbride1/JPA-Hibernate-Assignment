@@ -18,6 +18,10 @@ public class DAO {
 		createTeam(1, "Minor Hurlers");
 		createPlayer(1, 18, 929292929);
 		createCoach(1, "Dylan@gmail.com");
+		viewClubs();
+		viewCoaches();
+		viewPlayers();
+		viewTeams();
 	}
 
 	public void createClub(String clubName, int clubId) {
