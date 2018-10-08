@@ -1,10 +1,12 @@
 package Entities;
 
 import javax.persistence.*;
-
 import java.util.List;
-
 import static javax.persistence.GenerationType.AUTO;
+
+@NamedQueries({
+				@NamedQuery(name = "Team.viewAllTeams", query = "SELECT c FROM Team c")
+})
 
 @Entity
 public class Team {
@@ -20,6 +22,10 @@ public class Team {
 	public Team(int teamId, String teamName) {
 		this.teamId = teamId;
 		this.teamName = teamName;
+	}
+
+	public Team() {
+
 	}
 
 	public int getTeamId() {

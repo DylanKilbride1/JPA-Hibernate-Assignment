@@ -1,11 +1,12 @@
 package Entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import static javax.persistence.GenerationType.AUTO;
+
+@NamedQueries({
+				@NamedQuery(name = "Coach.viewAllCoaches", query = "SELECT c FROM Coach c")
+})
 
 @Entity
 public class Coach {
@@ -17,6 +18,9 @@ public class Coach {
 	public Coach(int coachId, String coachEmailAddress) {
 		this.coachId = coachId;
 		this.coachEmailAddress = coachEmailAddress;
+	}
+
+	public Coach() {
 	}
 
 	public int getCoachId() {

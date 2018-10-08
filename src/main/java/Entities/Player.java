@@ -1,11 +1,12 @@
 package Entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import static javax.persistence.GenerationType.AUTO;
+
+@NamedQueries({
+				@NamedQuery(name = "Player.viewAllPlayers", query = "SELECT c FROM Player c")
+})
 
 @Entity
 public class Player {
@@ -14,12 +15,15 @@ public class Player {
 	@Column(name = "player_age")
 	private int playerAge;
 	@Column(name = "player_phone_number")
-	private long playerPhoneNumber;
+	private int playerPhoneNumber;
 
-	public Player(int playerId, int playerAge, long playerPhoneNumber) {
+	public Player(int playerId, int playerAge, int playerPhoneNumber) {
 		this.playerId = playerId;
 		this.playerAge = playerAge;
 		this.playerPhoneNumber = playerPhoneNumber;
+	}
+
+	public Player() {
 	}
 
 	public int getPlayerId() {
@@ -42,7 +46,7 @@ public class Player {
 		return playerPhoneNumber;
 	}
 
-	public void setPlayerPhoneNumber(long playerPhoneNumber) {
+	public void setPlayerPhoneNumber(int playerPhoneNumber) {
 		this.playerPhoneNumber = playerPhoneNumber;
 	}
 }

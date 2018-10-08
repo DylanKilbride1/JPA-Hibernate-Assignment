@@ -8,7 +8,7 @@ import java.util.List;
 import static javax.persistence.GenerationType.AUTO;
 
 @NamedQueries({
-				@NamedQuery(name = "Club.addClub", query = "")
+				@NamedQuery(name = "Club.viewAllClubs", query = "SELECT c FROM Club c")
 })
 
 @Entity
@@ -27,7 +27,6 @@ public class Club {
 	}
 
 	public Club() {
-		//TODO
 	}
 
 	public int getclubId() {
